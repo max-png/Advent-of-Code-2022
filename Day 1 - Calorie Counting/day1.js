@@ -81,19 +81,87 @@ foods = [
 
 let elves = [{
     name: "Stefan",
-    age: 36,
-    pouch: []
+    pouch: [],
+    caloryValue: 0
 },
 {
     name: "Pekka",
-    age: 21,
-    pouch: []
-}]
+    pouch: [],
+    caloryValue: 0
+},
+{
+    name: "Janne",
+    pouch: [],
+    caloryValue: 0
+},
+{
+    name: "Brunolf",
+    pouch: [],
+    caloryValue: 0
+},
+{
+    name: "Max",
+    pouch: [],
+    caloryValue: 0
+},
+]
 
-console.log(giveFoodToElf(foods[3], elves[1]))
+giveFood(foods[0], elves[0])
+giveFood(foods[1], elves[0])
+giveFood(foods[2], elves[0])
 
-function giveFoodToElf(food, elf) {
+giveFood(foods[3], elves[1])
+
+giveFood(foods[4], elves[2])
+giveFood(foods[5], elves[2])
+
+giveFood(foods[6], elves[3])
+giveFood(foods[7], elves[3])
+giveFood(foods[8], elves[3])
+
+giveFood(foods[9], elves[4])
+
+
+findElfWithMostCalories()
+
+/* checkFood(elves[0])
+checkFood(elves[1]) */
+
+function giveFood(food, elf) {
     elf.pouch.push(food)
-    console.log(elf.name + " fick lite " + food.name)
+    elf.name + " fick lite " + food.name
     return elf
+}
+
+function checkFood(elf) {
+    let foodResult = elf.name
+    let caloryValue = 0
+
+    if (elf.pouch.length > 0) {
+        foodResult += " har lite "
+        for (food in elf.pouch) {
+            caloryValue += elf.pouch[food].calories
+
+            foodResult += elf.pouch[food].name
+            if ((food) < (elf.pouch.length - 1)) {
+                foodResult += " och lite "
+            }
+        }
+        elf.caloryValue = caloryValue
+        /*         console.log(foodResult)
+                console.log("Det är " + elf.caloryValue + " kalorier\n") */
+        return elf
+    }
+
+}
+
+function findElfWithMostCalories() {
+    let richestElf = elves[0]
+    for (elf in elves) {
+        currentCalory = checkFood(elves[elf]).caloryValue
+        if (currentCalory > richestElf.caloryValue) {
+            richestElf = elves[elf]
+        }
+    }
+    console.log(richestElf.name + " har mat till ett värde av " + richestElf.caloryValue + " kalorier")
 }

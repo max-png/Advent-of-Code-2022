@@ -1,0 +1,42 @@
+[
+    {
+        "name": "jordgubbar",
+        "calories": 1000
+    },
+    {
+        "name": "vegansk prinskorv",
+        "calories": 2000
+    },
+    {
+        "name": "senapssill",
+        "calories": 3000
+    },
+    {
+        "name": "skånsk sill",
+        "calories": 4000
+    },
+    {
+        "name": "kanderad grönkål",
+        "calories": 5000
+    },
+    {
+        "name": "tiramisu",
+        "calories": 6000
+    },
+    {
+        "name": "ris á la malta",
+        "calories": 7000
+    },
+    {
+        "name": "knäck",
+        "calories": 8000
+    },
+    {
+        "name": "pepparkakshus",
+        "calories": 9000
+    },
+    {
+        "name": "spädbarnsgris",
+        "calories": 10000
+    }
+]

@@ -36,8 +36,48 @@ In case the Elves get hungry and need extra snacks, they need to know which Elf 
 
 Find the Elf carrying the most Calories. How many total Calories is that Elf carrying? */
 
-import data from './foods.json'
-console.log(data)
+foods = [
+    {
+        "name": "jordgubbar",
+        "calories": 1000
+    },
+    {
+        "name": "vegansk prinskorv",
+        "calories": 2000
+    },
+    {
+        "name": "senapssill",
+        "calories": 3000
+    },
+    {
+        "name": "skånsk sill",
+        "calories": 4000
+    },
+    {
+        "name": "kanderad grönkål",
+        "calories": 5000
+    },
+    {
+        "name": "tiramisu",
+        "calories": 6000
+    },
+    {
+        "name": "ris á la malta",
+        "calories": 7000
+    },
+    {
+        "name": "knäck",
+        "calories": 8000
+    },
+    {
+        "name": "pepparkakshus",
+        "calories": 9000
+    },
+    {
+        "name": "spädbarnsgris",
+        "calories": 10000
+    }
+]
 
 let elves = [{
     name: "Stefan",
@@ -49,3 +89,11 @@ let elves = [{
     age: 21,
     pouch: []
 }]
+
+console.log(giveFoodToElf(foods[3], elves[1]))
+
+function giveFoodToElf(food, elf) {
+    elf.pouch.push(food)
+    console.log(elf.name + " fick lite " + food.name)
+    return elf
+}

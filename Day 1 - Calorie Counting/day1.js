@@ -124,9 +124,6 @@ giveFood(foods[9], elves[4])
 
 findElfWithMostCalories()
 
-/* checkFood(elves[0])
-checkFood(elves[1]) */
-
 function giveFood(food, elf) {
     elf.pouch.push(food)
     elf.name + " fick lite " + food.name

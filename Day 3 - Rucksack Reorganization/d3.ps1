@@ -1,16 +1,16 @@
+$TotalItemPrio = 0
 Get-Content "Day 3 - Rucksack Reorganization\sample.txt" | ForEach-Object {
-    $TotalItemPrio = 0
+    $itemprio = 0
     $CharArray = $_.ToCharArray()
     $Length = $_.Length
     $Half = ($_.Length / 2)
-    $com1 = $CharArray[0..($Half - 1)]
-    $com2 = $CharArray[$Half..$Length]
 
-    
+    # Unique känns jävligt fult. Problemet innan var att om det fanns flera matcher, ex. s förekom 3 gånger så la den på det. Skit i det nu.
+    $com1 = $CharArray[0..($Half - 1)] | Select-Object -Unique
+    $com2 = $CharArray[$Half..$Length] | Select-Object -Unique
+   
     $com1 | ForEach-Object {
         if ($com2 -CContains $_) {
-            # TODO: Fixa en regex som jämför hela $com1 och $com2 istället för en char i taget
-            Write-Host "`$com2 matches the item [$_]"
             $itemprio = GetItemPrio $_
             $TotalItemPrio += $itemprio
         }
@@ -32,3 +32,4 @@ function GetItemPrio {
         throw "Invalid character"
     }
 }
+

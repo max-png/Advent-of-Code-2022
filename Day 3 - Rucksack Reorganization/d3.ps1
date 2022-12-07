@@ -1,5 +1,5 @@
 $TotalItemPrio = 0
-Get-Content "Day 3 - Rucksack Reorganization\sample.txt" | ForEach-Object {
+Get-Content "Day 3 - Rucksack Reorganization\input.txt" | ForEach-Object {
     $itemprio = 0
     $CharArray = $_.ToCharArray()
     $Length = $_.Length

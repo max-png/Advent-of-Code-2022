@@ -46,9 +46,7 @@ function GetItemPrio {
 }
 
 
-$1 = "vJrwpWtwJgWrhcsFMMfFFhFp"
-$2 = "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL"
-$3 = "PmmdzqPrVvPwwTWBwg"
+
 
 function GetItemPrio {
     param(
@@ -65,13 +63,29 @@ function GetItemPrio {
     }
 }
 
+<#
+$1 = "vJrwpWtwJgWrhcsFMMfFFhFp"
+$2 = "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL"
+$3 = "PmmdzqPrVvPwwTWBwg"
 $AuthBadge = (FindAuthBadge $1 $2 $3)
 $AuthPrio = GetItemPrio($AuthBadge)
-
 Write-Host $AuthBadge ":" $AuthPrio
+#>
+
+
 
 # TODO: Fixa en funktion som händer 3 rader i taget. 
-Get-Content "C:\node\aoc22\Day 3 - Rucksack Reorganization\input.txt" | ForEach-Object {
-    $x = $input.Count
-    Write-Host $x $_
+$lineInput = Get-Content "C:\node\aoc22\Day 3 - Rucksack Reorganization\input.txt"
+
+$TotalAuthPrio = 0
+
+for (($i = 0); $i -lt $lineInput.Length; $i+=3){
+    $1 = $lineInput[$i]
+    $2 = $lineInput[$i+1]
+    $3 = $lineInput[$i+2]
+    $AuthBadge = (FindAuthBadge $1 $2 $3)
+    $AuthPrio = GetItemPrio($AuthBadge)
+    $TotalAuthPrio += $AuthPrio
 }
+
+"`$TotalAuthPrio: $TotalAuthPrio"
